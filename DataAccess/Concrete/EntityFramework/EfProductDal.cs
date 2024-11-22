@@ -20,12 +20,16 @@ namespace DataAccess.Concrete.EntityFramework
             using (SignalRDbContext context = new SignalRDbContext()) {
                 var result = from p in context.Products
                              join c in context.Categories
-                             on p.CategoryId equals c.CategoryId
+                             on p.CategoryID equals c.CategoryID
                              select new ProductDetailDto
                              {
-                                 ProductId = p.ProductId,
-                                 ProductName = p.Name,
-                                 CategoryName = c.Name
+                                 ProductID = p.ProductID,
+                                 ProductName = p.ProductName,
+                                 CategoryName = c.CategoryName,
+                                 Description=p.Description,
+                                 ImageUrl = p.ImageUrl,
+                                 Price = p.Price,
+                                 ProductStatus = p.ProductStatus
                              };
             return result.ToList();
             }

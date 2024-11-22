@@ -28,7 +28,7 @@ namespace Business.Concrete
 
         public Category Get(int id)
         {
-            return _categoryDal.Get(c=>c.CategoryId==id);
+            return _categoryDal.Get(c=>c.CategoryID==id);
         }
 
         public List<Category> GetAll()

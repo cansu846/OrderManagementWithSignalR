@@ -1,0 +1,38 @@
+﻿@using SignalRWebUI.Dtos.CategoryDtos
+@model UpdateCategoryDto;
+@{
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Category Operations Form</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form action="/Category/UpdateCategory/" method ="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Update Category</div>
+						</div>
+						<div class="card-body">
+							<input type="hidden" asp-for="CategoryID" />
+							<div class="form-group">
+								<label for="categoryname">Category Name</label>
+								<input type="text" class="form-control" asp-for="CategoryName" id="categoryname" placeholder="Enter Category name">
+								@* 							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+								*@
+							</div>
+
+						</div>
+						<div class="card-action">
+							<button class="btn btn-success">Update Category</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

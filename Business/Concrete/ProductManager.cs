@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public Product Get(int id)
         {
-            return _productDal.Get(p=>p.ProductId==id);
+            return _productDal.Get(p=>p.ProductID==id);
         }
 
         public List<Product> GetAll()
