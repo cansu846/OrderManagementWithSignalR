@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete.Pages
+namespace SignalRWebUI.Dtos.DiscountDtos
 {
-    public class Discount
+    public class ResultDiscountDto
     {
         public int DiscountID { get; set; }
         public string Title { get; set; }

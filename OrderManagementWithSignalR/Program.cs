@@ -22,6 +22,7 @@ builder.Services.AddAutoMapper(typeof(BookingMapping));
 builder.Services.AddAutoMapper(typeof(CategoryMapping));
 builder.Services.AddAutoMapper(typeof(ProductMapping));
 builder.Services.AddAutoMapper(typeof(ContactMapping));
+builder.Services.AddAutoMapper(typeof(DiscountMapping));
 
 
 builder.Services.AddDbContext<SignalRDbContext>();
@@ -40,6 +41,9 @@ builder.Services.AddScoped<IProductDal, EfProductDal>();
 
 builder.Services.AddScoped<IContactService, ContactManager>();
 builder.Services.AddScoped<IContactDal, EfContactDal>();
+
+builder.Services.AddScoped<IDiscountService, DiscountManager>();
+builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
 
 
 //builder.Services.AddScoped<IContactService, ContactManager>();

@@ -28,7 +28,7 @@ namespace Business.Concrete
 
         public Discount Get(int id)
         {
-           return _discountDal.Get(d=>d.DiscountId==id);
+           return _discountDal.Get(d=>d.DiscountID==id);
         }
 
         public List<Discount> GetAll()
