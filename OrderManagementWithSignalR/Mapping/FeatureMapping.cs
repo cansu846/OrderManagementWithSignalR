@@ -8,10 +8,10 @@ namespace WebApi.Mapping
     {
         public FeatureMapping()
         {
-            CreateMap<EntityFeature, ResultFeatureDto>().ReverseMap();
-            CreateMap<EntityFeature, CreateFeatureDto>().ReverseMap();
-            CreateMap<EntityFeature, UpdateFeatureDto>().ReverseMap();
-            CreateMap<EntityFeature, GetFeatureDto>().ReverseMap();
+            CreateMap<Feature, ResultFeatureDto>().ReverseMap();
+            CreateMap<Feature, CreateFeatureDto>().ReverseMap();
+            CreateMap<Feature, UpdateFeatureDto>().ReverseMap();
+            CreateMap<Feature, GetFeatureDto>().ReverseMap();
         }
     }
 }

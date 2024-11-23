@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IFeatureDal: IEntityRepository<EntityFeature>
+    public interface IFeatureDal: IEntityRepository<Feature>
     {
     }
 }

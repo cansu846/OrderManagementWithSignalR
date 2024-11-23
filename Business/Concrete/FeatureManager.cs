@@ -16,27 +16,27 @@ namespace Business.Concrete
         {
             _featureDal = featureDal;
         }
-        public void Add(EntityFeature entity)
+        public void Add(Feature entity)
         {
             _featureDal.Add(entity);
         }
 
-        public void Delete(EntityFeature entity)
+        public void Delete(Feature entity)
         {
             _featureDal.Delete(entity);
         }
 
-        public EntityFeature Get(int id)
+        public Feature Get(int id)
         {
-            return _featureDal.Get(f=>f.EntityFeatureId==id);
+            return _featureDal.Get(f=>f.FeatureID==id);
         }
 
-        public List<EntityFeature> GetAll()
+        public List<Feature> GetAll()
         {
             return _featureDal.GetAll();
         }
 
-        public void Update(EntityFeature entity)
+        public void Update(Feature entity)
         {
             _featureDal.Update(entity);
         }

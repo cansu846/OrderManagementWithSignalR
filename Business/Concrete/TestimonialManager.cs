@@ -28,7 +28,7 @@ namespace Business.Concrete
 
         public Testimonial Get(int id)
         {
-            return _testimonialDal.Get(t=>t.TestimonialId == id);   
+            return _testimonialDal.Get(t=>t.TestimonialID == id);   
         }
 
         public List<Testimonial> GetAll()

@@ -27,7 +27,7 @@ namespace Business.Concrete
 
         public SocialMedia Get(int id)
         {
-            return _socialMediaDal.Get(s=>s.SocialMediaId==id);
+            return _socialMediaDal.Get(s=>s.SocialMediaID==id);
         }
 
         public List<SocialMedia> GetAll()

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfFeatureDal : EfEntityRepositoryBase<EntityFeature>, IFeatureDal
+    public class EfFeatureDal : EfEntityRepositoryBase<Feature>, IFeatureDal
     {
 
         public EfFeatureDal(SignalRDbContext dbContext) : base(dbContext) { }

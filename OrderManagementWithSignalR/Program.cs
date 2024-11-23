@@ -23,6 +23,9 @@ builder.Services.AddAutoMapper(typeof(CategoryMapping));
 builder.Services.AddAutoMapper(typeof(ProductMapping));
 builder.Services.AddAutoMapper(typeof(ContactMapping));
 builder.Services.AddAutoMapper(typeof(DiscountMapping));
+builder.Services.AddAutoMapper(typeof(FeatureMapping));
+builder.Services.AddAutoMapper(typeof(SocialMediaMapping));
+builder.Services.AddAutoMapper(typeof(TestimonialMapping));
 
 
 builder.Services.AddDbContext<SignalRDbContext>();
@@ -45,6 +48,14 @@ builder.Services.AddScoped<IContactDal, EfContactDal>();
 builder.Services.AddScoped<IDiscountService, DiscountManager>();
 builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
 
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+
+builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
 //builder.Services.AddScoped<IContactService, ContactManager>();
 //builder.Services.AddScoped<IContactDal, EfContactDal>();

@@ -50,7 +50,7 @@ namespace DataAccess.Concrete
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-        public DbSet<EntityFeature> TblFeatures { get; set; }
+        public DbSet<Feature> Features { get; set; }
 
 
     }

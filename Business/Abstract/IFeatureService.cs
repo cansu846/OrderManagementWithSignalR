@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IFeatureService:IGenericService<EntityFeature>
+    public interface IFeatureService:IGenericService<Feature>
     {
       
     }

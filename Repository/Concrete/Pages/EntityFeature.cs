@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete.Pages
 {
-    public class EntityFeature
-    {
-        public int EntityFeatureId { get; set; }
-        public string Title1 { get; set; }
-        public string Description1 { get; set; }
-        public string Title2 { get; set; }
-        public string Description2 { get; set; }
-        public string Title3 { get; set; }
-        public string Description3 { get; set; }
-
-    }
+	public class Feature
+	{
+		public int FeatureID { get; set; }
+		public string Title1 { get; set; }
+		public string Description1 { get; set; }
+		public string Title2 { get; set; }
+		public string Description2 { get; set; }
+		public string Title3 { get; set; }
+		public string Description3 { get; set; }
+	}
 }
