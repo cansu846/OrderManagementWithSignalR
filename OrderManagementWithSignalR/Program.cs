@@ -3,10 +3,23 @@ using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using WebApi.Hubs;
 using WebApi.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    });
+});
+
+builder.Services.AddSignalR();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -57,26 +70,6 @@ builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
-//builder.Services.AddScoped<IContactService, ContactManager>();
-//builder.Services.AddScoped<IContactDal, EfContactDal>();
-
-//builder.Services.AddScoped<IDiscountService, DiscountManager>();
-//builder.Services.AddScoped<IDiscountDal, EfDiscountDal>();
-
-//builder.Services.AddScoped<IFeatureService, FeatureManager>();
-//builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
-
-//builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
-//builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
-
-//builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
-//builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
-
-
-
-
-
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -90,11 +83,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//Cors politikası 
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+//localhost://portno/signalrhub istegi yapar
+app.MapHub<SignalRHub>("/signalrhub");
 
 app.Run();
