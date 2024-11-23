@@ -28,7 +28,7 @@ namespace Business.Concrete
 
         public Booking Get(int id)
         {
-            return _bookingDal.Get(b=>b.BookingId==id);
+            return _bookingDal.Get(b=>b.BookingID==id);
         }
 
         public List<Booking> GetAll()

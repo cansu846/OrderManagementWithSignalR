@@ -1,0 +1,50 @@
+﻿@model SignalRWebUI.Dtos.BookingDtos.UpdateBookingDto
+@{
+    ViewData["Title"] = "Update Booking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Booking Operations Form</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form action="/Booking/UpdateBooking/" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Booking</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="BookingID" name="name" value="" />
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" asp-for="Name" id="Name">
+
+                                <label for="Phone">Phone</label>
+                                <input type="text" class="form-control" asp-for="Phone" id="Phone">
+
+                                <label for="Mail">Mail</label>
+                                <input type="email" class="form-control" asp-for="Mail" id="Mail">
+
+                                <label for="PersonCount">Person Count</label>
+                                <input type="number" class="form-control" asp-for="PersonCount" id="PersonCount">
+
+                                <label for="Date">Date</label>
+                                <input type="date" class="form-control" asp-for="Date" id="Date">
+
+                                <label for="description">Description</label>
+                                <input type="text" class="form-control" asp-for="Description" id="description">
+                            </div>
+                        </div>
+
+                        <div class="card-action">
+                            <button class="btn btn-primary">Update Booking</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

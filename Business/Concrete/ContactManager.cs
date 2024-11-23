@@ -30,7 +30,7 @@ namespace Business.Concrete
 
         public Contact Get(int id)
         {
-            return _contactDal.Get(c=>c.ContactId==id);
+            return _contactDal.Get(c=>c.ContactID==id);
         }
 
         public List<Contact> GetAll()

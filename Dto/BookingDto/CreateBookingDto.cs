@@ -14,5 +14,6 @@ namespace SignalR.DtoLayer.BookingDto
         public int PersonCount { get; set; }
         public DateTime Date { get; set; }
 		public string Description { get; set; }
-	}
+        public bool Status { get; set; }
+    }
 }
