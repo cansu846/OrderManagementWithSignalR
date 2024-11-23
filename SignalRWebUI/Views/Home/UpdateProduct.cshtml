@@ -1,0 +1,50 @@
+﻿@model SignalRWebUI.Dtos.ProductDtos.UpdateProductDto
+@{
+	ViewData["Title"] = "Create Product";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Product Operations Form</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post" action="/Product/UpdateProduct">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Register New Product</div>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
+								<label for="productname">Product Name</label>
+
+								<input type="hidden" asp-for="ProductID" >
+
+								<input type="text" class="form-control" asp-for="ProductName" id="productname" placeholder="Enter Product name">
+								
+								<label for="price">Product Price</label>
+								<input type="text" class="form-control" asp-for="Price" id="price">
+
+								<label for="imageurl">Product Image</label>
+								<input type="text" class="form-control" asp-for="ImageUrl" id="imageurl">
+
+								<label for="productcategori">Select Categori</label>
+ 								@Html.DropDownListFor(c=>c.CategoryID, (List<SelectListItem>)ViewBag.v, new {@class="form-control"})
+ 
+								<label for="description">Description</label>
+								<input type="text" class="form-control" asp-for="Description" id="description">
+
+							</div>
+
+						</div>
+						<div class="card-action">
+							<button class="btn btn-success">Add Product</button>
+							
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

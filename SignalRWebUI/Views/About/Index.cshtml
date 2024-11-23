@@ -1,10 +1,10 @@
-﻿@using SignalRWebUI.Dtos.CategoryDtos
-@model List<ResultCategoryDto> 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
-}
+﻿@using SignalRWebUI.Dtos.AboutDtos
+@model List<ResultAboutDto>
 
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
 <div class="content">
 	<div class="container-fluid">
 		<h4 class="page-title">Tables</h4>
@@ -22,8 +22,10 @@
 							<thead>
 								<tr>
 									<th scope="col">#</th>
-									<th scope="col">Category Name</th>
-									<th scope="col">Status</th>
+									<th scope="col">Title</th>
+									<th scope="col">Description</th>
+									<th scope="col">Image</th>
+									
 									<th scope="col">Delete</th>
 									<th scope="col">Update</th>
 								</tr>
@@ -31,27 +33,26 @@
 							<tbody>
 								@foreach (var item in Model)
 								{
-										<tr>
-											<td>@item.CategoryID</td>
-											<td>@item.CategoryName</td>
-											<td>@item.CategoryStatus</td>
-											<td>
-												<a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger"> Delete </a>
-											</td>
+									<tr>
+										<td>@item.AboutID</td>
+										<td>@item.Title</td>
+										<td>@item.Description</td>
+										<td>@item.ImageUrl</td>
+										
 										<td>
-											<a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-success">Update</a>
+											<a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger"> Delete </a>
 										</td>
-										</tr>
+										<td>
+											<a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-success">Update</a>
+										</td>
+									</tr>
 								}
-
+ 
 							</tbody>
 						</table>
-
 						@* CategoryController içindeki [HttpGet] olarak işaretlenmiş CreateCategory metodunu tetikler.
 						Kullanıcı, bu bağlantıya tıkladığında yeni bir kategori eklemek için bir form içeren View döndürülür. *@
-
-
-						<a href="/Category/CreateCategory/" class="btn btn-outline-info">Enter Category</a>
+						<a href="/About/CreateAbout/" class="btn btn-outline-info">Enter About</a>
 					</div>
 				</div>
 

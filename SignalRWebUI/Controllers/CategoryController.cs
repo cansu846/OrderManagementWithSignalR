@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SignalWebRUI.Controllers
 {
-    public class CategoryController : Controller
+	public class CategoryController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
