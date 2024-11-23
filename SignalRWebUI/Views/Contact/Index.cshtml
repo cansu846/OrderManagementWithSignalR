@@ -1,0 +1,54 @@
+﻿@using SignalRWebUI.Dtos.ContactDtos
+@model List<ResultContactDto>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Tables</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Basic Table</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							This is the basic table view of the ready dashboard :
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">Phone</th>
+									<th scope="col">Mail</th>
+									<th scope="col">Description</th>
+									<th scope="col">Delete</th>
+									<th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.Phone</td>
+										<td>@item.Mail</td>
+										<td>@item.FooterDescription</td>
+										<td><a href="/Contact/DeleteContact/@item.ContactID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Contact/UpdateContact/@item.ContactID" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						@* CategoryController içindeki [HttpGet] olarak işaretlenmiş CreateCategory metodunu tetikler.
+						Kullanıcı, bu bağlantıya tıkladığında yeni bir kategori eklemek için bir form içeren View döndürülür. *@
+						<a href="/Contact/CreateContact/" class="btn btn-outline-info">Enter Contact</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+

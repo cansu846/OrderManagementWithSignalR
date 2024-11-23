@@ -3,9 +3,6 @@ using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using Entities.Concrete;
-using Entities.Concrete.Pages;
-using Microsoft.EntityFrameworkCore;
 using WebApi.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +21,8 @@ builder.Services.AddAutoMapper(typeof(AboutMapping));
 builder.Services.AddAutoMapper(typeof(BookingMapping));
 builder.Services.AddAutoMapper(typeof(CategoryMapping));
 builder.Services.AddAutoMapper(typeof(ProductMapping));
+builder.Services.AddAutoMapper(typeof(ContactMapping));
+
 
 builder.Services.AddDbContext<SignalRDbContext>();
 
@@ -38,6 +37,9 @@ builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
 
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<IProductDal, EfProductDal>();
+
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactDal, EfContactDal>();
 
 
 //builder.Services.AddScoped<IContactService, ContactManager>();
