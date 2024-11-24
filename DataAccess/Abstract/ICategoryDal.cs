@@ -10,5 +10,8 @@ namespace DataAccess.Abstract
 {
     public interface ICategoryDal : IEntityRepository<Category>
     {
-    }
+        int CategoryCount();
+        int ActiveCategoryCount();
+		int PassiveCategoryCount();
+	}
 }

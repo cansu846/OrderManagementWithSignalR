@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Dto.ProductDto;
 using Entities.Concrete;
 using Entities.Concrete.Pages;
@@ -38,12 +39,39 @@ namespace Business.Concrete
             return _productDal.GetAll();
         }
 
-        public List<ProductDetailDto> GetProductDetailWithCategory()
+		public decimal GetAverageByProductPrice()
+		{
+			return _productDal.GetAverageByProductPrice();
+		}
+
+		public int GetProductCountByCategoryName(string name)
+		{
+            return _productDal.GetProductCountByCategoryName(name);
+		}
+
+		public List<ProductDetailDto> GetProductDetailWithCategory()
         {
            return _productDal.GetProductDetailWithCategory();
-        }
+		}
 
-        public void Update(Product entity)
+		public List<string> GetProductNameByMaxPrice()
+		{
+			return _productDal.GetProductNameByMaxPrice();
+		}
+
+		public List<string> GetProductNameByMinPrice()
+		{
+			return _productDal.GetProductNameByMinPrice();
+
+		}
+
+		public int ProductCount()
+		{
+			return _productDal.ProductCount();
+
+		}
+
+		public void Update(Product entity)
         {
             _productDal.Update(entity);
         }

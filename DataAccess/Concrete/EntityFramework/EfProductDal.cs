@@ -15,7 +15,27 @@ namespace DataAccess.Concrete.EntityFramework
        
         public EfProductDal(SignalRDbContext dbContext) : base(dbContext) { }
 
-        public List<ProductDetailDto> GetProductDetailWithCategory()
+		public decimal GetAverageByProductPrice()
+		{
+			using var context = new SignalRDbContext();
+            var value = context.Products.Average(p=>p.Price);
+            return value; 
+		}
+
+		public int GetProductCountByCategoryName(string name)
+		{
+            using var context = new SignalRDbContext();
+
+            var count = (from p in context.Products
+                         join c in context.Categories
+                         on p.CategoryID equals c.CategoryID
+                         where c.CategoryName == name
+                         select p).Count();
+           
+            return count;
+		}
+
+		public List<ProductDetailDto> GetProductDetailWithCategory()
         {
             using (SignalRDbContext context = new SignalRDbContext()) {
                 var result = from p in context.Products
@@ -34,7 +54,34 @@ namespace DataAccess.Concrete.EntityFramework
             return result.ToList();
             }
         }
-    }
+
+		public List<string> GetProductNameByMaxPrice()
+		{
+			using var context = new SignalRDbContext();
+
+			List<string> values = new List<string>();
+            var minPrice = context.Products.Max(p=>p.Price);
+            values = context.Products.Where(p=>p.Price==minPrice).Select(p=>p.ProductName).ToList();
+            return values;
+		}
+
+		public List<string> GetProductNameByMinPrice()
+		{
+			using var context = new SignalRDbContext();
+
+			List<string> values = new List<string>();
+			var minPrice = context.Products.Min(p => p.Price);
+			values = context.Products.Where(p => p.Price == minPrice).Select(p => p.ProductName).ToList();
+			return values;
+		}
+
+		public int ProductCount()
+		{
+			using var context = new SignalRDbContext();
+			var count = context.Products.Count();
+			return count;
+		}
+	}
 
   
 }

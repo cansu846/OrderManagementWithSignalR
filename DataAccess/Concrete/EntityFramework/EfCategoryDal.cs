@@ -14,5 +14,26 @@ namespace DataAccess.Concrete.EntityFramework
         public EfCategoryDal(SignalRDbContext context) : base(context)
         {
         }
-    }
+
+		public int ActiveCategoryCount()
+		{
+			using var context = new SignalRDbContext();
+			var count = context.Categories.Where(c=>c.CategoryStatus==true).Count();
+			return count;
+		}
+
+		public int CategoryCount()
+		{
+			using var context = new SignalRDbContext();
+			var count = context.Categories.Count();
+			return count;
+		}
+
+		public int PassiveCategoryCount()
+		{
+			using var context = new SignalRDbContext();
+			var count = context.Categories.Where(c => c.CategoryStatus == false).Count();
+			return count;
+		}
+	}
 }

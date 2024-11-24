@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace Entities.Concrete
         public bool ProductStatus { get; set; }
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }

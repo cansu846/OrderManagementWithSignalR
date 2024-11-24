@@ -16,12 +16,23 @@ namespace Business.Concrete
         {
             _categoryDal = categoryDal;
         }
-        public void Add(Category entity)
+
+		public int ActiveCategoryCount()
+		{
+			return _categoryDal.ActiveCategoryCount();
+		}
+
+		public void Add(Category entity)
         {
             _categoryDal.Add(entity);
         }
 
-        public void Delete(Category entity)
+		public int CategoryCount()
+		{
+			return _categoryDal.CategoryCount();
+		}
+
+		public void Delete(Category entity)
         {
             _categoryDal.Delete(entity);
         }
@@ -36,7 +47,12 @@ namespace Business.Concrete
             return _categoryDal.GetAll();
         }
 
-        public void Update(Category entity)
+		public int PassiveCategoryCount()
+		{
+			return _categoryDal.PassiveCategoryCount();
+		}
+
+		public void Update(Category entity)
         {
             _categoryDal.Update(entity);
         }

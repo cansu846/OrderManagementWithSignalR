@@ -14,5 +14,10 @@ namespace Business.Abstract
     public interface IProductService:IGenericService<Product>
     {
         List<ProductDetailDto> GetProductDetailWithCategory();
-    }
+		int ProductCount();
+        int GetProductCountByCategoryName(string name);
+		List<string> GetProductNameByMinPrice();
+		List<string> GetProductNameByMaxPrice();
+		decimal GetAverageByProductPrice();
+	}
 }

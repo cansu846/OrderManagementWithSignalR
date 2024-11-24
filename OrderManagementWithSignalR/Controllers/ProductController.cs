@@ -8,24 +8,24 @@ using SignalR.DtoLayer.ProductDto;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController:ControllerBase
-    {
-        private IProductService _productService;
-        private IMapper _mapper;
-        public ProductController(IProductService productService, IMapper mapper)
-        {
-            _mapper = mapper;
-            _productService = productService;
-        }
+	[Route("api/[controller]")]
+	[ApiController]
+	public class ProductController : ControllerBase
+	{
+		private IProductService _productService;
+		private IMapper _mapper;
+		public ProductController(IProductService productService, IMapper mapper)
+		{
+			_mapper = mapper;
+			_productService = productService;
+		}
 
-        [HttpGet("product-detail")]
-        public IActionResult GetProductDetailWithCategory()
-        {
-            var values = _productService.GetProductDetailWithCategory();
-            return Ok(values);
-        }
+		[HttpGet("product-detail")]
+		public IActionResult GetProductDetailWithCategory()
+		{
+			var values = _productService.GetProductDetailWithCategory();
+			return Ok(values);
+		}
 
 		[HttpGet]
 		public IActionResult GetAll()
@@ -62,5 +62,42 @@ namespace WebApi.Controllers
 			_productService.Delete(value);
 			return Ok(Messages.Deleted);
 		}
+
+		[HttpGet("ProductCount")]
+		public IActionResult ProductCount()
+		{
+			var value = _productService.ProductCount();
+			return Ok(value);
+		}
+
+		[HttpGet("GetProductCountByCategoryName/{name}")]
+		public IActionResult GetProductCountByCategoryName(string name)
+		{
+			var value = _productService.GetProductCountByCategoryName(name);
+			return Ok(value);
+		}
+
+		[HttpGet("GetProductNameByMinPrice")]
+		public IActionResult GetProductNameByMinPrice()
+		{
+			var value = _productService.GetProductNameByMinPrice();
+			return Ok(value);
+		}
+
+		[HttpGet("GetProductNameByMaxPrice")]
+		public IActionResult GetProductNameByMaxPrice()
+		{
+			var value = _productService.GetProductNameByMaxPrice();
+			return Ok(value);
+		}
+
+		[HttpGet("GetAverageByProductPrice")]
+		public IActionResult GetAverageByProductPrice()
+		{
+			var value = _productService.GetAverageByProductPrice();
+			return Ok(value);
+		}
+
+
 	}
 }

@@ -11,5 +11,11 @@ namespace DataAccess.Abstract
     public interface IProductDal: IEntityRepository<Product>
     {
         List<ProductDetailDto> GetProductDetailWithCategory();
-    }
+		int ProductCount();
+        int GetProductCountByCategoryName(string name);
+
+        List<string> GetProductNameByMinPrice();
+        List<string> GetProductNameByMaxPrice();
+		decimal GetAverageByProductPrice();
+	}
 }

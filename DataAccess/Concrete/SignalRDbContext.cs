@@ -39,7 +39,7 @@ namespace DataAccess.Concrete
             // Eğer başka bir ayar yapılmamışsa, varsayılan ayarı uygula
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-3ADO5MC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False", b => b.MigrationsAssembly("WebApi"));
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-3ADO5MC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False", b => b.MigrationsAssembly("DataAccess"));
             }
         }
         public DbSet<Product> Products { get; set; }
@@ -51,7 +51,9 @@ namespace DataAccess.Concrete
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Feature> Features { get; set; }
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<OrderDetail> OrderDetails {get; set; }
 
 
-    }
+	}
 }

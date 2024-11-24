@@ -58,5 +58,24 @@ namespace WebApi.Controllers
             _categoryService.Delete(value);
             return Ok(Messages.Deleted);
         }
-    }
+
+		[HttpGet("CategoryCount")]
+		public IActionResult CategoryCount()
+		{
+			var value = _categoryService.CategoryCount();
+			return Ok(value);
+		}
+		[HttpGet("ActiveCategoryCount")]
+		public IActionResult ActiveCategoryCount()
+		{
+			var value = _categoryService.ActiveCategoryCount();
+			return Ok(value);
+		}
+		[HttpGet("PassiveCategoryCount")]
+		public IActionResult PassiveCategoryCount()
+		{
+			var value = _categoryService.PassiveCategoryCount();
+			return Ok(value);
+		}
+	}
 }
