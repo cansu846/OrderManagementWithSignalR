@@ -28,7 +28,11 @@ namespace DataAccess.Concrete.EntityFramework
 
 		public decimal TodayTotalPrice()
 		{
-			return 0;
+			using var context = new SignalRDbContext();
+			var value = context.Orders
+				.Where(o => o.OrderDate==DateTime.Now.Date)
+				.Sum(o=>o.TotalPrice);
+			return value;
 		}
 
 		public int TotalOrderCount()
