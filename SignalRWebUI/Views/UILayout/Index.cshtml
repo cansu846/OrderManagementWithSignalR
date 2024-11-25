@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+@* UILayout *@
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
+<body class="sub_page">
+
+    @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+
+    @await Component.InvokeAsync("_DefaultSliderComponentPartial")
+
+    @*     slider section navbarda yer alan hero nun içinde oldugundan dolayı aşagdaki div konulmuştur
+    *@
+
+    
+    @RenderBody()
+
+    @await Component.InvokeAsync("_DefaultOfferComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+</body>
+
+</html>
