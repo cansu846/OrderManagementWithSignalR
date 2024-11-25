@@ -21,8 +21,7 @@
 				connection.start().then(() => {
 					$("#connstatus").text(connection.state);
 					//Methoda istekte bulunur
-					connection.invoke("SendCategoryCount");
-					connection.invoke("SendProductCount");
+					connection.invoke("SendStatistic");
 				}).catch((err) => { console.log(err) });
 
 
@@ -33,6 +32,14 @@
 				//ReceiveCategoryCount istekte bulunulur
 				connection.on("ReceiveCategoryCount", (value) => {
 					$("#categorycount").text(value);
+				});
+
+				connection.on("RecieveActiveCategoryCount", (activeCategoryCount) => {
+					$("#activecategorycount").text(activeCategoryCount);
+				});
+
+				connection.on("RecievePassiveCategoryCount", (value) => {
+					$("#passivecategorycount").text(value);
 				});
 			});
 		</script>
@@ -87,8 +94,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Active Category Count</p>
+									<h4 class="card-title" id="activecategorycount">  </h4>
 								</div>
 							</div>
 						</div>
@@ -101,13 +108,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-check-circle"></i>
+									<i class="la la-close"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">Passive Category Count</p>
+									<h4 class="card-title" id="passivecategorycount">passive</h4>
 								</div>
 							</div>
 						</div>
@@ -123,5 +130,10 @@
         <div class="alert alert-success">Bağlantının Durumu:<strong id="connstatus"></strong></div>
         <div class="alert alert-info">Kategori Sayısı:<strong id="categorycount"></strong></div>
 		<div class="alert alert-info">Product Count:<strong id="productcount"></strong></div>
+		<div class="alert alert-info">activecategory Count:<strong id="activecategorycount"></strong></div>
+
+		<div class="alert alert-info">passivecategorycount:<strong id="passivecategorycount"></strong></div>
+
     </div>
 </div>
+

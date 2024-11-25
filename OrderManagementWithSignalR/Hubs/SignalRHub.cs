@@ -21,19 +21,23 @@ namespace WebApi.Hubs
 		// Asenkron bir metodun, tamamlandığında bir sonuç döndürmesi gerekmez.
 		// Eğer döndürmüyorsa, metot Task türünde olur.
 		// Eğer sonuç döndürüyorsa, Task<T> türünde olur
-		public async Task SendCategoryCount()
-		{
-			//var value = context.Categories.Count();
-			var value = _categoryService.CategoryCount();
-			await Clients.All.SendAsync("ReceiveCategoryCount", value);
-		}
 
-		public async Task SendProductCount()
+		public async Task SendStatistic()
 		{
 			//var value = context.Categories.Count();
-			var value = _productService.ProductCount();
-			await Clients.All.SendAsync("ReceiveProductCount", value);
+			var categoryCount = _categoryService.CategoryCount();
+			await Clients.All.SendAsync("ReceiveCategoryCount", categoryCount);
+
+			var productCount = _productService.ProductCount();
+			await Clients.All.SendAsync("ReceiveProductCount", productCount);
+
+			var activeCategoryCount = _categoryService.ActiveCategoryCount();
+			await Clients.All.SendAsync("RecieveActiveCategoryCount ", activeCategoryCount);
+
+			var passiveCategoryCount = _categoryService.PassiveCategoryCount();
+			await Clients.All.SendAsync("RecievePassiveCategoryCount ", passiveCategoryCount);
 		}
+		
 
 	}
 }
