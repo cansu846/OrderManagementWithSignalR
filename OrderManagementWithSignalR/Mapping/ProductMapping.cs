@@ -2,7 +2,6 @@
 using Dto.ProductDto;
 using Entities.Concrete;
 using Entities.Concrete.Pages;
-using SignalR.DtoLayer.ProductDto;
 
 namespace WebApi.Mapping
 {

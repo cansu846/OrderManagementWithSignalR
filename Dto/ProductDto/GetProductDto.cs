@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.ProductDto
+namespace Dto.ProductDto
 {
     public class GetProductDto
     {

@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Business.Abstract;
 using Business.Constants;
+using Dto.ProductDto;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.DtoLayer.CategoryDto;
-using SignalR.DtoLayer.ProductDto;
 
 namespace WebApi.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
 	public class ProductController : ControllerBase
 	{

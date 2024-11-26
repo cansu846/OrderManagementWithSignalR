@@ -1,6 +1,6 @@
 ﻿using Entities.Concrete;
 
-namespace SignalR.DtoLayer.ProductDto
+namespace Dto.ProductDto
 {
     public class ResultProductDto
     {
@@ -10,6 +10,6 @@ namespace SignalR.DtoLayer.ProductDto
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public bool ProductStatus { get; set; }
-		public Category Category { get; set; }
-	}
+        public Category Category { get; set; }
+    }
 }
