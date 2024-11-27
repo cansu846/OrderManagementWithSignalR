@@ -41,11 +41,11 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("GetBasketByMenuTableId/{id}")]
-        public List<ResultBasketDto> GetBasketByMenuTableId(int id)
+        public IActionResult GetBasketByMenuTableId(int id)
         {
             var values = _basketService.GetBasketByMenuTableId(id);
             List<ResultBasketDto> list = _mapper.Map<List<ResultBasketDto>>(values);
-            return list;
+            return Ok(list);
         }
 
             
