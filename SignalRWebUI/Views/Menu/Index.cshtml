@@ -134,6 +134,7 @@
                 type: "post",
                 data: {item : id},
                 contentType : "json",
+                url: "/Menu/AddBasket/"+id,
                 success: function () {
                     // alert("The product id you click: " + id);
                     Swal.fire({

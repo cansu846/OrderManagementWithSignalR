@@ -3,6 +3,7 @@ using Business.Abstract;
 using Entities.Concrete.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Dto.BasketDto;
+using DataAccess.Concrete;
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
@@ -27,11 +28,20 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult Add(CreateBasketDto createBasketDto)
         {
-           var basket = _mapper.Map<Basket>(createBasketDto);
-            _basketService.Add(basket);
-            return Ok("Succesfullt added");
+            using var context = new SignalRDbContext();
+            var count = createBasketDto.Count;
+            var price = context.Products.Where(x => x.ProductID == createBasketDto.ProductID).Select(y => y.Price).FirstOrDefault();
+            _basketService.Add(new Basket()
+            {
+                ProductID = createBasketDto.ProductID,
+                MenuTableID = createBasketDto.MenuTableID,
+                Count = count,
+                Price = price,
+                TotalPrice = count*price,
+            });
+            return Ok("Added");
         }
-
+       
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

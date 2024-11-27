@@ -12,6 +12,6 @@ namespace Business.Abstract
     public interface IBasketService:IGenericService<Basket>
     {
         List<Basket> GetBasketByMenuTableId(int id);
-        List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id);
+        List<ResultBasketListWithProductsDto> GetBasketListByMenuTableIdWithProductName(int id);
     }
 }

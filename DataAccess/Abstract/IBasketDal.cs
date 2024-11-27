@@ -11,6 +11,6 @@ namespace DataAccess.Abstract
     public interface IBasketDal:IGenericDal<Basket>
     {
         List<Basket> GetBasketByMenuTableId(int id);
-        List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id);
+        List<ResultBasketListWithProductsDto> GetBasketListByMenuTableIdWithProductName(int id);
     }
 }

@@ -30,11 +30,11 @@ namespace DataAccess.Concrete.EntityFramework
             return values;
         }
 
-        public List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id)
+        public List<ResultBasketListWithProductsDto> GetBasketListByMenuTableIdWithProductName(int id)
         {
             using var context = new SignalRDbContext();
             var values = context.Baskets.Where(b => b.MenuTableID == id).Include(p => p.Product)
-                .Select(b=>new ResultBasketListWithProducts()
+                .Select(b=>new ResultBasketListWithProductsDto()
                 {
                     BasketID=b.BasketID,
                     Count=b.Count,

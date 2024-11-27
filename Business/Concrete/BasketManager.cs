@@ -43,7 +43,7 @@ namespace Business.Concrete
             return _basketDal.GetBasketByMenuTableId(id);
         }
 
-        public List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id)
+        public List<ResultBasketListWithProductsDto> GetBasketListByMenuTableIdWithProductName(int id)
         {
            return _basketDal.GetBasketListByMenuTableIdWithProductName(id);
         }

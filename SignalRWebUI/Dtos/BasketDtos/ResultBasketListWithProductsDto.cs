@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dto.BasketDto
+namespace SignalRWebUI.Dtos.BasketDtos
 {
-    public class ResultBasketListWithProducts
+    public class ResultBasketListWithProductsDto
     {
         public int BasketID { get; set; }
         public decimal Price { get; set; }
