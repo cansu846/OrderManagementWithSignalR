@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
+using Dto.BasketDto;
 using Entities.Concrete.Pages;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,11 @@ namespace Business.Concrete
         public List<Basket> GetBasketByMenuTableId(int id)
         {
             return _basketDal.GetBasketByMenuTableId(id);
+        }
+
+        public List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id)
+        {
+           return _basketDal.GetBasketListByMenuTableIdWithProductName(id);
         }
 
         public void Update(Basket entity)

@@ -1,4 +1,5 @@
-﻿using Entities.Concrete.Pages;
+﻿using Dto.BasketDto;
+using Entities.Concrete.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace DataAccess.Abstract
     public interface IBasketDal:IGenericDal<Basket>
     {
         List<Basket> GetBasketByMenuTableId(int id);
+        List<ResultBasketListWithProducts> GetBasketListByMenuTableIdWithProductName(int id);
     }
 }

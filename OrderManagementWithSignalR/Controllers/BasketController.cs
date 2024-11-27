@@ -48,6 +48,13 @@ namespace WebApi.Controllers
             return Ok(list);
         }
 
-            
+        [HttpGet("GetBasketListByMenuTableIdWithProductName/{id}")]
+        public IActionResult GetBasketListByMenuTableIdWithProductName(int id)
+        {
+            var values = _basketService.GetBasketListByMenuTableIdWithProductName(id);
+            return Ok(values);
+        }
+
+
     }
 }
