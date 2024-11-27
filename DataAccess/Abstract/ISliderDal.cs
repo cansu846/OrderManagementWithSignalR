@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ISliderDal:IEntityRepository<Slider>
+    public interface ISliderDal:IGenericDal<Slider>
     {
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-	public interface IOrderDal:IEntityRepository<Order>
+	public interface IOrderDal:IGenericDal<Order>
 	{
 		int TotalOrderCount();
 		int ActiveOrderCount();

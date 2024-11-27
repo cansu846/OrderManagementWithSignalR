@@ -56,6 +56,8 @@ namespace DataAccess.Concrete
 		public DbSet<MoneyCase> MoneyCases { get; set; }
 		public DbSet<MenuTable> MenuTables { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+
 
     }
 }

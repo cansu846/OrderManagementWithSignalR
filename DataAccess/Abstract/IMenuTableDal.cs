@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-	public interface IMenuTableDal:IEntityRepository<MenuTable>
+	public interface IMenuTableDal:IGenericDal<MenuTable>
 	{
 		int MenuTableCount();
 	}

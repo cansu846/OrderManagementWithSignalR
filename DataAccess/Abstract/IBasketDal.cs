@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-	public interface IOrderDetailDal:IGenericDal<OrderDetail>
-	{
-	}
+    public interface IBasketDal:IGenericDal<Basket>
+    {
+        List<Basket> GetBasketByMenuTableId(int id);
+    }
 }

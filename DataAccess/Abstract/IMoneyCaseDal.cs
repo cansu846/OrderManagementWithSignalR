@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-	public interface IMoneyCaseDal:IEntityRepository<MoneyCase>
+	public interface IMoneyCaseDal:IGenericDal<MoneyCase>
 	{
 		decimal TotalMoneyCaseAmount();
 	}

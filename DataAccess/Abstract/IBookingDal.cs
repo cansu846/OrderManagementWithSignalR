@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IBookingDal: IEntityRepository<Booking>
+    public interface IBookingDal: IGenericDal<Booking>
     {
     }
 }

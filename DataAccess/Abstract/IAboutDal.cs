@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IAboutDal : IEntityRepository<About>
+    public interface IAboutDal : IGenericDal<About>
     {
+        
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
+    public class EfEntityRepositoryBase<TEntity> : IGenericDal<TEntity>
         where TEntity : class, new()
 
     {

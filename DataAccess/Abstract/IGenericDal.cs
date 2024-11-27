@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEntityRepository<T> where T : class, new()
+    public interface IGenericDal<T> where T : class, new()
     {   //Expression<Func<T, bool>> ifadesi bir T türünde nesne alıp bool döndüren
         //bir lambda ifadesini veya fonksiyonu kabul eder.
         //Filtre verilirse, Data filtreye göre getirilir.
