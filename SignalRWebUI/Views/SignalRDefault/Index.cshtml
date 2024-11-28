@@ -21,7 +21,7 @@
 				connection.start().then(() => {
 					$("#connstatus").text(connection.state);
 
-					SetInterval(()=>{
+					setInterval(()=>{
 						//Methoda istekte bulunur
 					connection.invoke("SendStatistic");
 					}, 1000);
