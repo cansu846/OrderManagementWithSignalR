@@ -41,6 +41,7 @@ builder.Services.AddAutoMapper(typeof(SocialMediaMapping));
 builder.Services.AddAutoMapper(typeof(TestimonialMapping));
 builder.Services.AddAutoMapper(typeof(BasketMapping));
 builder.Services.AddAutoMapper(typeof(NotificationMapper));
+builder.Services.AddAutoMapper(typeof(MenuTableMapper));
 
 
 builder.Services.AddDbContext<SignalRDbContext>();

@@ -19,32 +19,31 @@ namespace Business.Concrete
         }
         public void Add(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			_menuTableDal.Add(entity);	
 		}
 
 		public void Delete(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			_menuTableDal.Delete(entity);
 		}
 
 		public MenuTable Get(int id)
 		{
-			throw new NotImplementedException();
+			return _menuTableDal.Get(mt=>mt.MenuTableID==id);
 		}
 
 		public List<MenuTable> GetAll()
 		{
-			throw new NotImplementedException();
+			return _menuTableDal.GetAll();
 		}
 
 		public int MenuTableCount()
 		{
 			return _menuTableDal.MenuTableCount();
 		}
-
 		public void Update(MenuTable entity)
 		{
-			throw new NotImplementedException();
+			_menuTableDal.Update(entity);
 		}
 	}
 }

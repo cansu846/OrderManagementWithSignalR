@@ -20,5 +20,6 @@ namespace DataAccess.Concrete.EntityFramework
 			var value = context.MenuTables.Count();
 			return value;
 		}
+
 	}
 }
