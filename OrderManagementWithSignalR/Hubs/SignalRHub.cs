@@ -85,5 +85,13 @@ namespace WebApi.Hubs
 			List<Notification> list = _notificationService.GetAllNotificationByFalse();
 			await Clients.All.SendAsync("ReceiveGetAllNotificationByFalse", list);
 		}
+
+						
+		public async Task SendMenuTableList()
+		{
+			var values = _menuTableService.GetAll();
+			await Clients.All.SendAsync("ReceiveMenuTableList", values);
+
+		}
 	}
     }
