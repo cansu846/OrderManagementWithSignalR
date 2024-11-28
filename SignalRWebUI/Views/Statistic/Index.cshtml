@@ -5,8 +5,54 @@
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
 }
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+
 <div class="content">
 	<div class="container-fluid">
+		<script type="text/javascript">
+			$(document).ready(() => {
+				var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7142/SignalRHub").build();
+				$("#connstatus").text(connection.state);
+
+				connection.start().then(() => {
+					$("#connstatus").text(connection.state);
+
+					setInterval(() => {
+						//Methoda istekte bulunur
+						connection.invoke("SendStatistic");
+						
+					}, 1000);
+
+
+					// connection.invoke("SendActiveCategoryCount");
+				}).catch((err) => { console.log(err) });
+
+
+				connection.on("ReceiveProductCount", (value) => {
+					$("#productcount").text(value);
+				});
+
+				//ReceiveCategoryCount istekte bulunulur
+				connection.on("ReceiveCategoryCount", (value) => {
+					$("#categorycount").text(value);
+				});
+				connection.on("RecieveActiveCategoryCount", (value) => {
+					$("#activecategory").text(value);
+
+				});
+
+				connection.on("RecievePassiveCategoryCount", (value) => {
+					$("#passivecategorycount").text(value);
+				});
+			});
+
+		</script>
 		<h4 class="page-title">Dashboard</h4>
 		<div class="row">
 			<div class="col-md-3">
@@ -15,13 +61,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-users"></i>
+									<i class="la la-certificate"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Visitors</p>
-									<h4 class="card-title">1,294</h4>
+									<p class="card-category">Category</p>
+									<h4 class="card-title" id="categorycount"></h4>
 								</div>
 							</div>
 						</div>
@@ -34,13 +80,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-bar-chart"></i>
+									<i class="la la-shopping-cart"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Sales</p>
-									<h4 class="card-title">$ 1,345</h4>
+									<p class="card-category">Product</p>
+									<h4 class="card-title" id="productcount"></h4>
 								</div>
 							</div>
 						</div>
@@ -58,8 +104,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Active Category</p>
+									<h4 class="card-title" id="activecategory"></h4>
 								</div>
 							</div>
 						</div>
@@ -72,95 +118,19 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-check-circle"></i>
+									<i class="la la-close"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">Passive Category</p>
+									<h4 class="card-title" id="passivecategorycount">passive</h4>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- 							<div class="col-md-3">
-											<div class="card card-stats">
-												<div class="card-body ">
-													<div class="row">
-														<div class="col-5">
-															<div class="icon-big text-center icon-warning">
-																<i class="la la-pie-chart text-warning"></i>
-															</div>
-														</div>
-														<div class="col-7 d-flex align-items-center">
-															<div class="numbers">
-																<p class="card-category">Number</p>
-																<h4 class="card-title">150GB</h4>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="card card-stats">
-												<div class="card-body ">
-													<div class="row">
-														<div class="col-5">
-															<div class="icon-big text-center">
-																<i class="la la-bar-chart text-success"></i>
-															</div>
-														</div>
-														<div class="col-7 d-flex align-items-center">
-															<div class="numbers">
-																<p class="card-category">Revenue</p>
-																<h4 class="card-title">$ 1,345</h4>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="card card-stats">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-5">
-															<div class="icon-big text-center">
-																<i class="la la-times-circle-o text-danger"></i>
-															</div>
-														</div>
-														<div class="col-7 d-flex align-items-center">
-															<div class="numbers">
-																<p class="card-category">Errors</p>
-																<h4 class="card-title">23</h4>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="card card-stats">
-												<div class="card-body">
-													<div class="row">
-														<div class="col-5">
-															<div class="icon-big text-center">
-																<i class="la la-heart-o text-primary"></i>
-															</div>
-														</div>
-														<div class="col-7 d-flex align-items-center">
-															<div class="numbers">
-																<p class="card-category">Followers</p>
-																<h4 class="card-title">+45K</h4>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div> -->
 		</div>
 	
 	</div>
