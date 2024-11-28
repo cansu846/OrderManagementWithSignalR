@@ -47,6 +47,7 @@ namespace WebApi.Controllers
 			_notificationService.Delete(notification);
 			return Ok("Deleted");
 		}
+
 		[HttpPut]
 		public IActionResult Update(UpdateNotificationDto updateNotificationDto)
 		{
@@ -55,5 +56,28 @@ namespace WebApi.Controllers
 			return Ok("Updated");
 		}
 
+		[HttpGet("GetAllNotificationByFalse")]
+		public List<Notification> GetAllNotificationByFalse()
+		{
+			return _notificationService.GetAllNotificationByFalse();
+		}
+
+		[HttpGet("NotificationCountByStatusFalse")]
+		public int NotificationCountByStatusFalse()
+		{
+			return _notificationService.NotificationCountByStatusFalse();
+		}
+
+		[HttpGet("NotificationStatusChangeToFalse/{id}")]
+		public void NotificationStatusChangeToFalse(int id)
+		{
+			_notificationService.NotificationStatusChangeToFalse(id);
+		}
+
+		[HttpGet("NotificationStatusChangeToTrue/{id}")]
+		public void NotificationStatusChangeToTrue(int id)
+		{
+			_notificationService.NotificationStatusChangeToTrue(id);
+		}
 	}
 }

@@ -36,6 +36,26 @@ namespace Business.Concrete
 			return _notificationDal.GetAll();
 		}
 
+		public List<Notification> GetAllNotificationByFalse()
+		{
+			return _notificationDal.GetAllNotificationByFalse();
+		}
+
+		public int NotificationCountByStatusFalse()
+		{
+			return _notificationDal.NotificationCountByStatusFalse();
+		}
+
+		public void NotificationStatusChangeToFalse(int id)
+		{
+			_notificationDal.NotificationStatusChangeToFalse(id);
+		}
+
+		public void NotificationStatusChangeToTrue(int id)
+		{
+			_notificationDal.NotificationStatusChangeToTrue(id);
+		}
+
 		public void Update(Notification entity)
 		{
 			_notificationDal.Update(entity);	

@@ -24,6 +24,7 @@
 					setInterval(()=>{
 						//Methoda istekte bulunur
 					connection.invoke("SendStatistic");
+						connection.invoke("SendNotification");
 					}, 1000);
 					
 					
@@ -47,6 +48,10 @@
 
 				connection.on("RecievePassiveCategoryCount", (value) => {
 					$("#passivecategorycount").text(value);
+				});
+
+	connection.on("ReceiveNotificationCountByStatusFalse", (value) => {
+					$("#notificationbyfalse").text(value);
 				});
 			});
 
@@ -138,6 +143,7 @@
         <div class="alert alert-success">Bağlantının Durumu:<strong id="connstatus"></strong></div>
         <div class="alert alert-info">Kategori Sayısı:<strong id="categorycount"></strong></div>
 		<div class="alert alert-info">Product Count:<strong id="productcount"></strong></div>
+		<div class="alert alert-info">Notification Count:<strong id="notificationbyfalse"></strong></div>
     </div>
 </div>
 

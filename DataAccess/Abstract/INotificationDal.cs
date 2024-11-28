@@ -9,5 +9,9 @@ namespace DataAccess.Abstract
 {
 	public interface INotificationDal:IGenericDal<Notification>
 	{
+		public List<Notification> GetAllNotificationByFalse();
+		public int NotificationCountByStatusFalse();
+		public void NotificationStatusChangeToFalse(int id);
+		public void NotificationStatusChangeToTrue(int id);
 	}
 }

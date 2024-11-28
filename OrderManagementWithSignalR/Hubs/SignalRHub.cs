@@ -15,11 +15,12 @@ namespace WebApi.Hubs
 		private readonly IOrderService _orderService;
 		private readonly IMenuTableService _menuTableService;
         private readonly IBookingService _bookingService;
+		private readonly INotificationService _notificationService;
 
 
 		public SignalRHub(ICategoryService categoryService, IProductService productService,
 			IMoneyCaseService moneyCaseService, IOrderService orderService, IMenuTableService menuTableService,
-            IBookingService bookingService)
+            IBookingService bookingService, INotificationService notificationService)
 		{
 			_categoryService = categoryService;
 			_productService = productService;
@@ -27,6 +28,7 @@ namespace WebApi.Hubs
 			_orderService = orderService;	
 			_menuTableService = menuTableService;
             _bookingService = bookingService;
+			_notificationService = notificationService;
         }
 
 		// Asenkron bir metodun, tamamlandığında bir sonuç döndürmesi gerekmez.
@@ -74,6 +76,10 @@ namespace WebApi.Hubs
             var values = _bookingService.GetAll();
             await Clients.All.SendAsync("ReceiveBookingList", values);
         }
-
-    }
+		public async Task SendNotification()
+		{
+			var values = _notificationService.NotificationCountByStatusFalse();
+			await Clients.All.SendAsync("ReceiveNotificationCountByStatusFalse", values);
+		}
+	}
     }
