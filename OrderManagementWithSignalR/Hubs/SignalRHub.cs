@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete;
+using Entities.Concrete.Pages;
 using Microsoft.AspNetCore.SignalR;
 
 namespace WebApi.Hubs
@@ -80,6 +81,9 @@ namespace WebApi.Hubs
 		{
 			var values = _notificationService.NotificationCountByStatusFalse();
 			await Clients.All.SendAsync("ReceiveNotificationCountByStatusFalse", values);
+
+			List<Notification> list = _notificationService.GetAllNotificationByFalse();
+			await Clients.All.SendAsync("ReceiveGetAllNotificationByFalse", list);
 		}
 	}
     }
