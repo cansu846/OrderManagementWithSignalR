@@ -40,6 +40,7 @@ builder.Services.AddAutoMapper(typeof(FeatureMapping));
 builder.Services.AddAutoMapper(typeof(SocialMediaMapping));
 builder.Services.AddAutoMapper(typeof(TestimonialMapping));
 builder.Services.AddAutoMapper(typeof(BasketMapping));
+builder.Services.AddAutoMapper(typeof(NotificationMapper));
 
 
 builder.Services.AddDbContext<SignalRDbContext>();
@@ -86,6 +87,8 @@ builder.Services.AddScoped<ISliderDal, EfSliderDal>();
 builder.Services.AddScoped<IBasketService, BasketManager>();
 builder.Services.AddScoped<IBasketDal, EfBasketDal>();
 
+builder.Services.AddScoped<INotificationService, NotificationManager>();
+builder.Services.AddScoped<INotificationDal, EfNotificationDal>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
