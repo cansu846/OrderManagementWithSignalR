@@ -14,16 +14,20 @@ namespace WebApi.Hubs
 		private readonly IMoneyCaseService _moneyCaseService;
 		private readonly IOrderService _orderService;
 		private readonly IMenuTableService _menuTableService;
+        private readonly IBookingService _bookingService;
+
 
 		public SignalRHub(ICategoryService categoryService, IProductService productService,
-			IMoneyCaseService moneyCaseService, IOrderService orderService, IMenuTableService menuTableService)
+			IMoneyCaseService moneyCaseService, IOrderService orderService, IMenuTableService menuTableService,
+            IBookingService bookingService)
 		{
 			_categoryService = categoryService;
 			_productService = productService;
 			_moneyCaseService = moneyCaseService;
 			_orderService = orderService;	
 			_menuTableService = menuTableService;
-		}
+            _bookingService = bookingService;
+        }
 
 		// Asenkron bir metodun, tamamlandığında bir sonuç döndürmesi gerekmez.
 		// Eğer döndürmüyorsa, metot Task türünde olur.
@@ -64,7 +68,12 @@ namespace WebApi.Hubs
 			Console.WriteLine("test");
 			Console.WriteLine(menuTableCount);
 
-
 		}
-	}
-}
+        public async Task SendBookingList()
+        {
+            var values = _bookingService.GetAll();
+            await Clients.All.SendAsync("ReceiveBookingList", values);
+        }
+
+    }
+    }
