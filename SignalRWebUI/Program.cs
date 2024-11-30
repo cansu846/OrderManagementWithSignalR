@@ -1,9 +1,19 @@
+using DataAccess.Concrete;
+using Entities.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+
+
 
 //IHttpClientFactory dependencey injection? için gerekli
 builder.Services.AddHttpClient();
 
 // Add services to the container.
+
+builder.Services.AddDbContext<SignalRDbContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<SignalRDbContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
