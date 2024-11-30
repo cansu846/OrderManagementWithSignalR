@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Constants;
 using Entities.Concrete.Pages;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.DtoLayer.BookingDto;
 
@@ -14,11 +15,13 @@ namespace WebApi.Controllers
     {
         private IBookingService _bookingService;
         private IMapper _mapper;
+        private readonly IValidator<CreateBookingDto> _validator;
 
-        public BookingController(IBookingService bookingService, IMapper mapper)
+        public BookingController(IBookingService bookingService, IMapper mapper, IValidator<CreateBookingDto> validator)
         {
             _bookingService = bookingService;
             _mapper = mapper;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -45,6 +48,11 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult Add(CreateBookingDto createBookingDto)
         {
+            var validatorResult = _validator.Validate(createBookingDto);
+            if (!validatorResult.IsValid)
+            {
+                return BadRequest(validatorResult.Errors);
+            }
             var value = _mapper.Map<Booking>(createBookingDto);
             _bookingService.Add(value);
             return Ok(value);

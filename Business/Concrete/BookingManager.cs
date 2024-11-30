@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.ValidationRule;
 using DataAccess.Abstract;
 using Entities.Concrete.Pages;
 using System;
@@ -18,6 +19,7 @@ namespace Business.Concrete
         }
         public void Add(Booking entity)
         {
+
             _bookingDal.Add(entity);
         }
 
