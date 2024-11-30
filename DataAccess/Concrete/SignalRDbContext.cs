@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using Entities.Concrete.Pages;
 using Entities.Pages;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class SignalRDbContext : DbContext
+    public class SignalRDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
         //OnConfiguring yöntemi, bir DbContext örneği oluşturulurken
         //kullanılan veritabanı bağlantısı ve yapılandırmalarını belirlemek için kullanılır.

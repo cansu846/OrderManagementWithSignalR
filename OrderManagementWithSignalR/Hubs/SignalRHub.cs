@@ -93,5 +93,10 @@ namespace WebApi.Hubs
 			await Clients.All.SendAsync("ReceiveMenuTableList", values);
 
 		}
+		public async Task SendMessage(string message, string user)
+		{
+			await Clients.All.SendAsync("ReceiveMessage", user, message);
+
+		}
 	}
     }
