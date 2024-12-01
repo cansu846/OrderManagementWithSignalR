@@ -20,4 +20,4 @@ Bu SignalR projesi, ASP.NET Core 6.0 kullanarak hem admin hem de vitrin paneller
 - JavaScript (Dinamik etkileşim)
 
 
-![project_img1](Assets/signalr-1.jpg)
+![project_img1](./Assets/signalr-1.jpg)
