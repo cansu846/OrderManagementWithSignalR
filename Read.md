@@ -1,4 +1,5 @@
-﻿# Udemy platformunda Murat Yücedağ hocamızın eğitmenliğinde sunulan “ASP.NET Core Api SignalR ile QR Kodlu Sipariş Yönetimi” projesini tamamladım . Bu SignalR projesi, ASP.NET Core 6.0 kullanarak hem admin hem de vitrin panellerine sahip bir yapıdadır. Kullanıcılar için web arayüzü üzerinden sipariş verebildiği, rezervasyon yapabildiği ve e-posta yoluyla iletişim kurabilecekleri bir sistem geliştirildi. 
+﻿## Udemy platformunda Murat Yücedağ hocamızın eğitmenliğinde sunulan “ASP.NET Core Api SignalR ile QR Kodlu Sipariş Yönetimi” projesini tamamladım .
+Bu SignalR projesi, ASP.NET Core 6.0 kullanarak hem admin hem de vitrin panellerine sahip bir yapıdadır. Kullanıcılar için web arayüzü üzerinden sipariş verebildiği, rezervasyon yapabildiği ve e-posta yoluyla iletişim kurabilecekleri bir sistem geliştirildi. 
 
 ## Projeye ait bazı özellikler:
 
@@ -19,4 +20,4 @@
 - JavaScript (Dinamik etkileşim)
 
 
-[Assets/signalr-1]
+![project_img1](Assets/signalr-1)
