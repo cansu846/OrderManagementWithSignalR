@@ -1,16 +1,22 @@
-﻿async Task yapısı, asenkron programlama paradigmasını kullanarak zaman alan işlemleri
-(örneğin, dosya okuma/yazma, ağ üzerinden veri alma/gönderme) gerçekleştirmek için kullanılır. 
-Bu yapı, özellikle UI uygulamalarında kullanıcı arayüzünün donmamasını sağlamak ve 
-sunucuda birden fazla işlemi eşzamanlı yürütmek için yaygın olarak kullanılır.
+﻿# Udemy platformunda Murat Yücedağ hocamızın eğitmenliğinde sunulan “ASP.NET Core Api SignalR ile QR Kodlu Sipariş Yönetimi” projesini tamamladım . Bu SignalR projesi, ASP.NET Core 6.0 kullanarak hem admin hem de vitrin panellerine sahip bir yapıdadır. Kullanıcılar için web arayüzü üzerinden sipariş verebildiği, rezervasyon yapabildiği ve e-posta yoluyla iletişim kurabilecekleri bir sistem geliştirildi. 
 
-async Task Nedir?
-async: Bu anahtar kelime, bir yöntemin asenkron olduğunu belirtir.
-Bu yöntem, await anahtar kelimesini içererek uzun süren işlemleri beklerken başka işlerin yapılabilmesine izin verir.
-Task: Yöntemin bir değer döndürmediğini (void yerine) ama bir görev (Task) döndürdüğünü ifade eder.
-Yöntem tamamlandıktan sonra görev durumu Completed, Faulted veya Cancelled olabilir.
+## Projeye ait bazı özellikler:
+
+- Menü detayları ve fiyatlarının görüntülenmesi 
+- Kullanıcı etkileşimi için mail gönderme 
+- Admin paneli ile içerik, menü, kategori vb. sayfaların yönetilmesi
+- SignalR ile gerçek zamanlı veri takibi ve bildirimler 
+
+## Kullanılan teknolojiler:
+
+- ASP.NET Core 6.0 (Web API & MVC) 
+- MSSQL (Veritabanı) 
+- SignalR (Gerçek zamanlı iletişim) 
+- FluentValidation (Veri doğrulama) 
+- Swagger (API belgelendirme) 
+- Entity Framework & LINQ (Veri erişim) 
+- HTML, CSS, Bootstrap (Frontend) 
+- JavaScript (Dinamik etkileşim)
 
 
-
-_userManager: ASP.NET Core Identity'den gelen bir servis. Kullanıcı yönetimi (ekleme, silme, şifre doğrulama gibi işlemler) için kullanılır.
-CreateAsync: Verilen AppUser nesnesini ve şifreyi kullanarak yeni bir kullanıcı oluşturur ve bunu veritabanına kaydeder.
-registerDto.Password: Kullanıcının şifresi. Bu şifre genellikle şifrelenerek (hashlenerek) kaydedilir.
+[Assets/signalr-1]
